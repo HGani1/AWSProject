@@ -1,0 +1,32 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Project Sample Template
+
+Resources:
+    MyLambdaFunction:
+        Type: "AWS::Serverless::Function"
+        Properties:
+            CodeUri: lambdas/
+            Handler: myLambda.lambda
+            Runtime: nodejs8.10
+            Events: 
+                MyLambdaApi:
+                    Type: Api
+                    Properties:
+                        Path: /mylambda
+                        Method: get
+                MyLambdaS3:
+                    Type: S3
+                    Properties:
+                        Bucket: !Ref S3Bucket
+                        Events: s3:ObjectCreated:*
+    
+    S3Bucket:
+        Type: "AWS::S3::Bucket"
+        Properties:
+            BucketName: bucket-for-lambda-trigger-test
+
+
+                        
+
