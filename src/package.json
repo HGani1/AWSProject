@@ -3,21 +3,24 @@
     "@types/node": "^10.12.6",
     "aws-sdk": "^2.354.0",
     "save-dev": "^2.0.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "webpack-cli": "^3.1.2"
   },
   "name": "awsnodesample",
   "description": "A simple Node.js application showing usage of the AWS SDK for Node.js.",
   "version": "1.0.1",
   "main": "sample.js",
   "devDependencies": {
+    "ts-loader": "^5.3.1",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "package": "sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket hasanganitestbuckets3",
-    "deploy": "sam deploy --template-file packaged.yaml --stack-name sam-app --capabilities CAPABILITY_IAM",
-    "start": "webpack --config webpack.config.js"
+    "deploy": "sam deploy --template-file packaged.yaml --stack-name test-stack --capabilities CAPABILITY_IAM",
+    "build": "cp package.json dist/ && cd dist && npm install --production && cd .. && npx webpack --watch"
   },
   "author": "Hasan",
   "license": "ISC"

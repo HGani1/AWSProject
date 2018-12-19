@@ -7,8 +7,8 @@ Resources:
     MyLambdaFunction:
         Type: "AWS::Serverless::Function"
         Properties:
-            CodeUri: lambdas/
-            Handler: myLambda.lambda
+            CodeUri: dist/
+            Handler: loggerTest.handler
             Runtime: nodejs8.10
             Events: 
                 MyLambdaApi:

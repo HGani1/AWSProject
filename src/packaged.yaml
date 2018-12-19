@@ -3,7 +3,7 @@ Description: AWS Project Sample Template
 Resources:
   MyLambdaFunction:
     Properties:
-      CodeUri: s3://hasanganitestbuckets3/94b06ab4b8cc262836756c3bfdbb76dc
+      CodeUri: s3://hasanganitestbuckets3/19c04a9e2dcb1959fdd1ab3b8f6e09ca
       Events:
         MyLambdaApi:
           Properties:
@@ -16,7 +16,7 @@ Resources:
               Ref: S3Bucket
             Events: s3:ObjectCreated:*
           Type: S3
-      Handler: myLambda.lambda
+      Handler: loggerTest.handler
       Runtime: nodejs8.10
     Type: AWS::Serverless::Function
   S3Bucket:
