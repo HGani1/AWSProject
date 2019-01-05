@@ -1,4 +1,6 @@
 #Node Modules
-node_modules/
+src/node_modules/
+dynamoDB/node_modules/
 sam-app/
 src/dist/
+dynamoDB/dist/
