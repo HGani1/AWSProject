@@ -20,7 +20,20 @@
   "scripts": {
     "package": "sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket hasanganitestbuckets3",
     "deploy": "sam deploy --template-file packaged.yaml --stack-name test-stack --capabilities CAPABILITY_IAM",
-    "build": "cp package.json dist/ && cd dist && npm install --production && cd .. && npx webpack --watch"
+    "build": "cp package.json dist/ && cd dist && npm install --production && cd .. && npx webpack --watch",
+    "listTables": "aws dynamodb list-tables --endpoint-url http://localhost:8000",
+    "create": "cd .. && cd dynamoDB/dist/ && node MoviesCreateTable.js",
+    "load": "cd .. && cd dynamoDB/dist/ && node MoviesLoadData.js",
+    "insert": "cd .. && cd dynamoDB/dist/ && node MoviesItemOps01.js",
+    "read": "cd .. && cd dynamoDB/dist/ && node MoviesItemOps02.js",
+    "update": "cd .. && cd dynamoDB/dist/ && node MoviesItemOps03.js",
+    "update-increment": "cd .. && cd dynamoDB/dist/ && node MoviesItemOps04.js",
+    "update-condition": "cd .. && cd dynamoDB/dist/ && node MoviesItemOps05.js",
+    "deleteItem": "cd .. && cd dynamoDB/dist/ && node MoviesItemOps06.js",
+    "query": "cd .. && cd dynamoDB/dist/ && node MoviesQuery01.js",
+    "query2": "cd .. && cd dynamoDB/dist/ && node MoviesQuery02.js",
+    "scan": "cd .. && cd dynamoDB/dist/ && node MoviesScan.js",
+    "deleteTable": "cd .. && cd dynamoDB/dist/ && node MoviesDeleteTable.js"
   },
   "author": "Hasan",
   "license": "ISC"
