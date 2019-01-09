@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB Project
+Globals:
+  Function:
+    Timeout: 20
+Resources:
+  DeleteDataFunction:
+    Properties:
+      CodeUri: s3://hasanganitestbuckets3/0f64ca1204039a911ac05cb9349d9a00
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Events:
+        LoadData:
+          Properties:
+            Method: get
+            Path: /delete
+          Type: Api
+      Handler: deleteData.default
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+  LoadDataFunction:
+    Properties:
+      CodeUri: s3://hasanganitestbuckets3/0f64ca1204039a911ac05cb9349d9a00
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Events:
+        LoadData:
+          Properties:
+            Method: put
+            Path: /load
+          Type: Api
+      Handler: loadData.default
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+  ReadDataFunction:
+    Properties:
+      CodeUri: s3://hasanganitestbuckets3/0f64ca1204039a911ac05cb9349d9a00
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Events:
+        LoadData:
+          Properties:
+            Method: get
+            Path: /read
+          Type: Api
+      Handler: readData.default
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

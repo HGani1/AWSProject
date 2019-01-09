@@ -4,3 +4,6 @@ dynamoDB/node_modules/
 sam-app/
 src/dist/
 dynamoDB/dist/
+dynamoDB-api/node_modules/
+dynamoDB-api/dist/
+dynamoDB-api-copy
