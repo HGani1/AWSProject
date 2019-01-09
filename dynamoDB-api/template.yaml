@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: DynamoDB Project
+
+Globals:
+    Function:
+        Timeout: 20
+
+Resources:
+
+    LoadDataFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: dist/
+            Handler: loadData.default
+            Runtime: nodejs8.10
+            Environment:
+                Variables:
+                    PARAM1: VALUE
+            Events:
+                LoadData:
+                    Type: Api
+                    Properties:
+                        Path: /load
+                        Method: put
+    ReadDataFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: dist/
+            Handler: readData.default
+            Runtime: nodejs8.10
+            Environment:
+                Variables:
+                    PARAM1: VALUE
+            Events:
+                LoadData:
+                    Type: Api
+                    Properties:
+                        Path: /read
+                        Method: get
+    DeleteDataFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: dist/
+            Handler: deleteData.default
+            Runtime: nodejs8.10
+            Environment:
+                Variables:
+                    PARAM1: VALUE
+            Events:
+                LoadData:
+                    Type: Api
+                    Properties:
+                        Path: /delete
+                        Method: get
