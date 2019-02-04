@@ -18,6 +18,7 @@ export default async (event) => {
     };
 
     const load = db.put(params).promise();
+
     await load;
 
     return {
