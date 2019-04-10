@@ -1,9 +1,5 @@
 #Node Modules
-src/node_modules/
-dynamoDB/node_modules/
+node_modules/
 sam-app/
-src/dist/
-dynamoDB/dist/
-dynamoDB-api/node_modules/
-dynamoDB-api/dist/
+dist/
 dynamoDB-api-copy
