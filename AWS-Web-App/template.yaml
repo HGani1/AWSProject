@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Tutorial
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+
+  RequestUnicorn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist/
+      Handler: requestUnicorn.default
+      Runtime: nodejs8.10
+      Role: arn:aws:iam::429574201965:role/LambdaDynamoExecutionRole
+
+  RidesTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: Rides
+      PrimaryKey:
+        Name: RideId
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
