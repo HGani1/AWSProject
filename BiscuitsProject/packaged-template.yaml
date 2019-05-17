@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Biscuits Project
+Globals:
+  Function:
+    Timeout: 10
+Resources:
+  BiscuitFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://hasanganitestbuckets3/1e4fe75090db5fdde030649c946175e9
+      Handler: biscuitHandler.default
+      Runtime: nodejs8.10
+      FunctionName: BiscuitFunction
+      Role: arn:aws:iam::429574201965:role/LambdaDynamoExecutionRole
+      Events:
+        BiscuitApi:
+          Type: Api
+          Properties:
+            Path: /biscuits
+            Method: post
+  BiscuitsTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: Biscuits
+      PrimaryKey:
+        Name: BiscuitId
+        Type: Number
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
