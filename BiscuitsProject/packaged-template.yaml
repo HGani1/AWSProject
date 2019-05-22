@@ -8,7 +8,7 @@ Resources:
   BiscuitFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://hasanganitestbuckets3/1e4fe75090db5fdde030649c946175e9
+      CodeUri: s3://hasanganitestbuckets3/6a0e43880b2f2865671679b2b1ba5da3
       Handler: biscuitHandler.default
       Runtime: nodejs8.10
       FunctionName: BiscuitFunction

@@ -2,8 +2,9 @@
   "name": "awswebapp",
   "description": "tutorial",
   "dependencies": {
+    "amazon-s3-uri": "0.0.3",
     "aws-lambda": "^0.1.2",
-    "aws-sdk": "^2.354.0"
+    "aws-sdk": "^2.460.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.21",
