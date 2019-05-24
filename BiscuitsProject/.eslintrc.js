@@ -13,7 +13,10 @@ module.exports = {
       jest: true,
       mocha: true
     },
-    plugins: ["@typescript-eslint"],
+    plugins: [
+      "import",
+      "@typescript-eslint"
+    ],
     extends: ["eslint:recommended", "plugin:prettier/recommended"],
     rules: {
       "no-console": 0,

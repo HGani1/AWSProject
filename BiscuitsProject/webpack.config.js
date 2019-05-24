@@ -3,7 +3,7 @@ var path = require("path");
 
 module.exports = {
   entry: {
-    biscuitHandler: "./lambda/biscuitHandler.ts"
+    biscuitHandler: "./src/lambda/biscuitHandler.ts"
   },
   target: "node",
   watch: false,

@@ -1,6 +1,7 @@
 import Sinon from "sinon";
 const $ = require("ajax");
 
+//feature to stub
 const saveUser = (user: any, callback: any) => {
   $.post(
     "/users",
