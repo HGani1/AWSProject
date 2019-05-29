@@ -14,12 +14,13 @@ module.exports = {
       mocha: true
     },
     plugins: [
-      "import",
       "@typescript-eslint"
     ],
     extends: ["eslint:recommended", "plugin:prettier/recommended"],
     rules: {
       "no-console": 0,
+      "prefer-const": 1,
+      "sort-imports": 1,
       "@typescript-eslint/no-unused-vars": 1
     }
   };

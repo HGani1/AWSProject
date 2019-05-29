@@ -1,29 +1,29 @@
-import { BiscuitBody, Biscuit } from "../utils/dataContainer";
-import { responseMessage } from "../utils/api";
+import { Biscuit, BiscuitBody } from "../utils/dataContainer";
+
 import AWS from "aws-sdk";
 import { pathBuilder } from "../utils/pathBuilder";
-
-const s3 = new AWS.S3();
+import { responseMessage } from "../utils/api";
 
 export default async (event: BiscuitBody) => {
+  const s3 = new AWS.S3();
   const body = JSON.parse(event.body);
   const data = body.biscuitType;
   const bucket: string = "hasanganitestbuckets3";
   const dataSet: any[] = [1, 2, 3, 4, 5];
-  let region: string, objectKey: string;
-  let biscuit: Biscuit = {
+  let objectKey: string;
+  const biscuit: Biscuit = {
     name: "",
     img: ""
   };
 
-  let params: any = {
+  const params: any = {
     Bucket: bucket,
     Delimiter: "/",
     Prefix: "Biscuits/"
   };
 
   const reg = await s3.getBucketLocation({ Bucket: bucket }).promise();
-  region = reg.LocationConstraint;
+  const region = reg.LocationConstraint;
   const obj = await s3.listObjectsV2(params).promise();
 
   try {
@@ -31,6 +31,8 @@ export default async (event: BiscuitBody) => {
       switch (data) {
         case 1: {
           biscuit.name = "Digestive";
+
+          console.log(obj);
 
           obj.Contents.filter(key => {
             if (key.Key === "Biscuits/Digestive.jpeg") {

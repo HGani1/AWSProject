@@ -11,10 +11,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es2017"],
-    "allowSyntheticDefaultImports": true,
-    "types": [
-      "mocha"
-    ]
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules"
