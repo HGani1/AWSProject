@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@types/node": "^10.12.6",
-    "aws-sdk": "^2.354.0",
+    "aws-sdk": "^2.814.0",
     "save-dev": "^2.0.0",
     "uuid": "^3.3.2",
     "webpack-cli": "^3.1.2"
